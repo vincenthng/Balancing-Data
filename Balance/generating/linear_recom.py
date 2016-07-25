@@ -1,3 +1,5 @@
+import random
+from numpy import *
 def linear_recom(vector1,vector2):
     r = random.uniform(0.3,0.7)
     new_bug = []
