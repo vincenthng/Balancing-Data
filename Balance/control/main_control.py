@@ -33,9 +33,19 @@ def choose(a,b,c,listCsv,pos,neg):
         result=choosing_pos_neg(listCsv,pos,neg)
     return result
 
-'''生成并储存'''
-def generating_new_data(filename,a,b,c,listCsv,pos,neg,method):
-    read_file(filename) #文件路径
+'''
+生成并储存,参数依次为
+filename文件名,
+abc选取比例,
+listCsv总的数据集,
+pos正例数据集,
+neg负例数据集,
+method取012分别为3种算子,
+var为1则变异,
+var_rate为变异的幅度比例
+'''
+def generating_new_data(filename,a,b,c,listCsv,pos,neg,method,var,var_rate):
+    read_file(filename)
     while (float((len(pos))/float(len(listCsv))))<rate:
         temp=choose(a,b,c,listCsv,pos,neg)
         c=convert(temp)
@@ -45,6 +55,8 @@ def generating_new_data(filename,a,b,c,listCsv,pos,neg,method):
             result=single_point(c[0],c[1])
         else:
             result=discrete_recom(c[0],c[1])
+        if var==1:
+            variation(result,var_rate)
         list(result)
         for i in range(0,len(result)):
             k=len(result)-i
