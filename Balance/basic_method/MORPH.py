@@ -96,7 +96,7 @@ def get_deances(inputs1,inputs2):
     arr_difference = arr_difference.sum()
     arr_difference = arr_difference ** 0.5
     return arr_difference
-    def made_bug(bug_inputs_vector,all_inputs_vector):
+def made_bug(bug_inputs_vector,all_inputs_vector):
      str_list = []
      bug_vector = bug_inputs_vector[random.randrange(0,len(bug_inputs_vector))]
    #  bug_vector = bug_inputs_vector[2]
@@ -111,7 +111,8 @@ def get_deances(inputs1,inputs2):
          if arr_deances_list[i] == min(arr_deances_list):
              min_index = i
      print min_index
-     '''至此实现了与选中的的bug样本欧式距离最小的正立样本
+     '''
+     至此实现了与选中的的bug样本欧式距离最小的正立样本
         下面开始实现算法进行新的样本的改造
         根据公式：Yi = Xi +- (Xi - Zi) * r
         r取0.15
@@ -141,6 +142,7 @@ def get_deances(inputs1,inputs2):
  #    new_str = ','.join(str(i) for i in b)
      print type(new_str)
      return new_str
+
 '''
 f = open("C:/Users/Chris/Desktop/1.lang2.2_all.csv", 'a')
 f.write(new_str)

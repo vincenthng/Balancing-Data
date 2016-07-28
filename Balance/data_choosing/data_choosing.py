@@ -1,9 +1,8 @@
 from pre_solving.pre_solving import *
 import random
 
-read_file('1.lang2.2_all.csv')
 
-def choosing_neg_neg():
+def choosing_neg_neg(neg):
     choosing_2_element=[]
     rand = random.randint(0, len(neg) - 1)
     temp=neg[rand]
@@ -13,7 +12,7 @@ def choosing_neg_neg():
     neg.append(temp)
     return choosing_2_element
 
-def choosing_pos_pos():
+def choosing_pos_pos(pos):
     choosing_2_element=[]
     rand = random.randint(0, len(pos) - 1)
     temp=pos[rand]
@@ -23,7 +22,7 @@ def choosing_pos_pos():
     pos.append(temp)
     return choosing_2_element
 
-def choosing_pos_neg():
+def choosing_pos_neg(listCsv,pos,neg):
     choosing_2_element=[]
     rand =random.randint(0,len(listCsv)-1)
     choosing_2_element.append(listCsv[rand])
@@ -34,7 +33,3 @@ def choosing_pos_neg():
     return choosing_2_element
 
 
-
-print(choosing_pos_pos())
-print(choosing_neg_neg())
-print(choosing_pos_neg())
