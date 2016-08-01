@@ -39,10 +39,11 @@ def choose(a,b,c,listCsv,pos,neg):
 
 def convert_(a,name):
     a = list(a)
-    for i in range(1, len(a)):
-        k = len(a) - i
-        a[k] = a[k - 1]
-    a[0] = name
+    print name[0:2]
+    if(name[0:2]=="\r\n"):
+        a.insert(0,name)
+    else:
+        a.insert(0,"\r\n"+name)
     return a
 
 
@@ -61,10 +62,10 @@ def generating_new_data(filename,a,b,c,method,var,var_rate):
     read_file(filename)
     while (float((len(pos))/float(len(listCsv))))<rate:
         temp=choose(a,b,c,listCsv,pos,neg)
-        print temp
+        #print temp
         c=convert(temp)
-        print c
-        print type(c[0][2])
+        #print c
+        #print type(c[0][2])
         if(method==0):
             result=linear_recom(c[0], c[1])
         elif(method==1):
@@ -75,32 +76,23 @@ def generating_new_data(filename,a,b,c,method,var,var_rate):
             result=intermediate_rec(c[0],c[1])
         if var==1:
             variation(result,var_rate)
-        result=list(result)
         result=convert_(result,temp[0][0])
-        print result
-        a=[]
-        a.append(result)
-        a=convert(a)
-        print "a",a[0]
-        b=convert(pos)
-        print "b",b[1]
-        print linear_recom(a[0],b[1])
         if int(result[len(result)-1])>0:
             pos.append(result)
             listCsv.append(result)
         else:
             neg.append(result)
             listCsv.append(result)
-    output=filename.split(".csv")[0]+'-'+string(method)+".csv"
+    output=filename[0:len(filename)-4] + '-' + str(method) + ".csv"
     out=open(output,"w")
     for l in listCsv:
        for k in range(0,len(l)):
             if k!=len(l)-1:
-              out.write(l[k])
+              out.write(str(l[k]))
               out.write(',')
             else:
-              out.write(l[k])
-       '''out.write('\n')'''
+              out.write(str(l[k]))
+       #out.write('\n')
     out.close()
 
 

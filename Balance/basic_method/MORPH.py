@@ -3,7 +3,7 @@ from numpy import  *
 import random
 import operator
 import string
-f = open("C:/Users/Chris/Desktop/1.lang2.2_all.csv",'a+')
+f = open("1.lang2.2_all.csv",'a+')
 bug_inputs = [] #装入有bug的行数，是str列表
 bug_inputs_vector = []
 all_inputs = [] #装入每一行，是str形的列表
