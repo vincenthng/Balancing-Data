@@ -14,11 +14,11 @@ def judge_lable(vector1,vector2,vector_son):
     if get_deances(vector1,vector_son) > get_deances(vector2,vector_son): #儿子跟vector2姓
         v2_len = len(vector2)
         vson_len = len(vector_son)
-        vector_son[vson_len] = vector2[v2_len]
+        vector_son[vson_len - 1] = vector2[v2_len - 1]
     else:
         v1_len = len(vector1)
         vson_len = len(vector_son)
-        vector_son[vson_len] = vector1[v1_len]
+        vector_son[vson_len - 1] = vector1[v1_len - 1]
     return vector_son
 
 #print "judge:\n",judge_lable(MORPH.all_inputs_vector[2],MORPH.all_inputs_vector[3],MORPH.all_inputs_vector[4])
