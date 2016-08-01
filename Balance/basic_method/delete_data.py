@@ -2,8 +2,8 @@ import random
 import csv
 
 '''rate=0.2'''
-def delete_data(rate):
-    file = open('1.lang2.2_all.csv')
+def delete_data(rate,load,save):
+    file = open(load)
     line = file.readline()
 
     listCsv = []
@@ -35,7 +35,7 @@ def delete_data(rate):
     print (float((len(pos))/float(len(listCsv))))
 
 
-    out=open("test.csv","w")
+    out=open(save)
     for l in listCsv:
       for k in range(0,len(l)):
           if k!=len(l)-1:

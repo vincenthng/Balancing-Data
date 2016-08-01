@@ -24,7 +24,7 @@ def choosing_pos_pos(pos):
 
 def choosing_pos_neg(listCsv,pos,neg):
     choosing_2_element=[]
-    rand =random.randint(0,len(listCsv)-1)
+    rand =random.randint(1,len(listCsv)-1)
     choosing_2_element.append(listCsv[rand])
     if int(listCsv[rand][len(listCsv[rand])-1])>0:
         choosing_2_element.append(get_min_dis(listCsv[rand],neg))
@@ -33,3 +33,10 @@ def choosing_pos_neg(listCsv,pos,neg):
     return choosing_2_element
 
 
+'''test'''
+'''
+read_file("1.lang2.2_all.csv")
+print choosing_neg_neg(neg)
+print choosing_pos_pos(pos)
+print choosing_pos_neg(listCsv,pos,neg)
+'''
