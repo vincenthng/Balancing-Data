@@ -14,7 +14,7 @@ def single_point(vector1,vector2):
     array(new_bug_2)
     new_bug_1 = vector1[0:random_point]
     print new_bug_1
-    new_bug_2 = vector2[random_point+1: leng]
+    new_bug_2 = vector2[random_point: leng]
     print new_bug_2
 
     new_bug_1 = list(new_bug_1)
