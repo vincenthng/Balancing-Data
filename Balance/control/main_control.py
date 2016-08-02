@@ -25,7 +25,7 @@ def convert(selected):
     return array(selected_)
 
 
-'''a表示选择2个正例的比例,b为两个负例的比例,c为一正一负的比例'''
+'''a表示选择2个负例的比例,b为两个正例的比例,c为一正一负的比例'''
 def choose(a,b,c,listCsv,pos,neg):
     r=random.randint(0,100)
     result=[]
@@ -39,7 +39,6 @@ def choose(a,b,c,listCsv,pos,neg):
 
 def convert_(a,name):
     a = list(a)
-    print name[0:2]
     if(name[0:2]=="\r\n"):
         a.insert(0,name)
     else:
@@ -83,7 +82,7 @@ def generating_new_data(filename,a,b,c,method,var,var_rate):
         else:
             neg.append(result)
             listCsv.append(result)
-    output=filename[0:len(filename)-4] + '-' + str(method) + ".csv"
+    output="result/"+filename[0:len(filename)-4] + '-' + str(method) + ".csv"
     out=open(output,"w")
     for l in listCsv:
        for k in range(0,len(l)):
@@ -96,5 +95,6 @@ def generating_new_data(filename,a,b,c,method,var,var_rate):
     out.close()
 
 
-
-generating_new_data("1.lang2.2_all.csv",5,25,70,0,0,0.05)
+import glob
+for filename in glob.glob(r'time/*.csv'):
+    generating_new_data(filename,5,70,25,3,0,0.05)

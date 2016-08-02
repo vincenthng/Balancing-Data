@@ -18,8 +18,12 @@ def choosing_pos_pos(pos):
     temp=pos[rand]
     choosing_2_element.append(temp)
     pos.remove(temp)
-    choosing_2_element.append(get_min_dis(temp,pos))
-    pos.append(temp)
+    if(len(pos)>0):
+        choosing_2_element.append(get_min_dis(temp,pos))
+        pos.append(temp)
+    else:
+        choosing_2_element.append(temp)
+        pos.append(temp)
     return choosing_2_element
 
 def choosing_pos_neg(listCsv,pos,neg):

@@ -10,7 +10,11 @@ listCsv = []
 neg = []
 pos = []
 
+
 def read_file(filename):
+    del listCsv[:]
+    del pos[:]
+    del neg[:]
     file = open(filename)
     line = file.readline()
     while line!='':
@@ -37,9 +41,9 @@ def cal_distance(a,b):
 '''a为当前样本,b为想要找到找到距离最短的数据集'''
 def get_min_dis(a,b):
     min_v=[]
-    min_distance=cal_distance(a,b[1])
-    min_v = b[1]
-    for i in range (1,len(b)):
+    min_distance=cal_distance(a,b[0])
+    min_v = b[0]
+    for i in range (0,len(b)):
         now_distance=cal_distance(a,b[i])
         if(now_distance<min_distance):
             min_distance=now_distance
