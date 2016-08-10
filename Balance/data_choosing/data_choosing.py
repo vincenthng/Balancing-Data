@@ -30,7 +30,7 @@ def choosing_pos_neg(listCsv,pos,neg):
     choosing_2_element=[]
     rand =random.randint(1,len(listCsv)-1)
     choosing_2_element.append(listCsv[rand])
-    if int(listCsv[rand][len(listCsv[rand])-1])>0:
+    if float(listCsv[rand][len(listCsv[rand])-1])>0:
         choosing_2_element.append(get_min_dis(listCsv[rand],neg))
     else:
         choosing_2_element.append(get_min_dis(listCsv[rand],pos))

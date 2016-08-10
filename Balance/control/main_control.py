@@ -39,11 +39,10 @@ def choose(a,b,c,listCsv,pos,neg):
 
 def convert_(a,name):
     a = list(a)
-    if(name[0:2]=="\r\n"):
-        a.insert(0,name)
-    else:
-        a.insert(0,"\r\n"+name)
+    a.insert(0,name)
+    a[len(a)-1]=str(a[len(a)-1])+"\r\n"
     return a
+
 
 
 '''
@@ -76,7 +75,7 @@ def generating_new_data(filename,a,b,c,method,var,var_rate):
         if var==1:
             variation(result,var_rate)
         result=convert_(result,temp[0][0])
-        if int(result[len(result)-1])>0:
+        if float(result[len(result)-1])>0:
             pos.append(result)
             listCsv.append(result)
         else:
@@ -95,6 +94,17 @@ def generating_new_data(filename,a,b,c,method,var,var_rate):
     out.close()
 
 
+
+
 import glob
-for filename in glob.glob(r'time/*.csv'):
-    generating_new_data(filename,5,70,25,3,0,0.05)
+for filename in glob.glob(r'lang/*.csv'):
+    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
+    '''
+    output1="result/add/" + filename
+    output2="result/delete/" + filename
+    add_data(0.2,filename,output1)
+    delete_data(0.2, filename, output2)
+    '''
