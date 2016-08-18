@@ -3,7 +3,7 @@ from numpy import  *
 import random
 import operator
 import string
-bug_rate = 0.2
+bug_rate = 0.20
 read_file = "C:/Users/Chris/Desktop/1.lang2.2_all.csv"
 save_file = "C:/Users/Chris/Desktop/1.lang2.2_all.csv"
 def chang_array(inputs):
@@ -39,9 +39,9 @@ def made_bug(bug_inputs_vector,all_inputs_vector):
      for i in range(len(all_inputs_vector)):
          deances = get_deances(bug_vector,all_inputs_vector[i])
          arr_deances_list.append(deances)
-     for i in range(len(arr_deances_list)):
-         print  arr_deances_list[i]
-     print min(arr_deances_list)
+    # for i in range(len(arr_deances_list)):
+         #print  arr_deances_list[i]
+     #print min(arr_deances_list)
      for i in range(len(arr_deances_list)):
          if arr_deances_list[i] == min(arr_deances_list):
              min_index = i
@@ -85,7 +85,7 @@ def MORPH_function(bug_rate,read_file,save_file):
             count = count + 1
             if str1[i] != '0':
                 char1 = str1[i]
-                print char1
+                #print char1
                 j = int('1')
                 count_bug = count_bug + 1
                 bug_inputs.append(str1)
@@ -96,10 +96,16 @@ def MORPH_function(bug_rate,read_file,save_file):
                 arr = chang_array(line)
                 all_inputs_vector.append(arr)
     new_bug_list = []
-    while len(bug_inputs_vector) / len(all_inputs_vector) == bug_rate:
+    print float(len(bug_inputs_vector)) / len(all_inputs_vector)
+    while float(len(bug_inputs_vector)) / len(all_inputs_vector) != bug_rate:
         new_bug = made_bug(bug_inputs_vector,all_inputs_vector)
+
         bug_inputs_vector.append(new_bug)
         new_bug_list.append(new_bug)
+        print len(bug_inputs_vector)
+        print len(all_inputs_vector)
+        print len(bug_inputs_vector) / len(all_inputs_vector)
+
     for i in range(len(new_bug_list)):
         str_list = []
         for j in range(len(new_bug_list[i])):
@@ -113,5 +119,9 @@ def MORPH_function(bug_rate,read_file,save_file):
         new_bug_1 = bug_name_str + out_bug_str + '\n'
         w = open(save_file, 'a+')
         w.write(new_bug_1)
+        #print new_bug_1
         w.close()
     return
+
+
+#MORPH_function(0.2,read_file,save_file)
