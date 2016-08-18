@@ -1,6 +1,7 @@
 # coding=utf-8
 from basic_method.add_data import *
 from basic_method.delete_data import *
+from basic_method.MORPH import *
 from generating.linear_recom import *
 from generating.discrete_recom import *
 from generating.single_point import *
@@ -97,14 +98,13 @@ def generating_new_data(filename,a,b,c,method,var,var_rate):
 
 
 import glob
-for filename in glob.glob(r'lang/*.csv'):
+for filename in glob.glob(r'math/*.csv'):
     generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
     generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
     generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
     generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
-    '''
     output1="result/add/" + filename
     output2="result/delete/" + filename
     add_data(0.2,filename,output1)
     delete_data(0.2, filename, output2)
-    '''
+    #MORPH_function(0.2, filename, output2)

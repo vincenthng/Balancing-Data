@@ -35,7 +35,7 @@ def delete_data(rate,load,save):
     print (float((len(pos))/float(len(listCsv))))
 
 
-    out=open(save)
+    out=open(save,"w")
     for l in listCsv:
       for k in range(0,len(l)):
           if k!=len(l)-1:
