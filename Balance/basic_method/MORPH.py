@@ -4,8 +4,8 @@ import random
 import operator
 import string
 bug_rate = 0.20
-read_file = "C:/Users/Chris/Desktop/1.lang2.2_all.csv"
-save_file = "C:/Users/Chris/Desktop/1.lang2.2_all.csv"
+#read_file = "C:/Users/Chris/Desktop/1.lang2.2_all.csv"
+#save_file = "C:/Users/Chris/Desktop/1.lang2.2_all.csv"
 def chang_array(inputs):
    # print "str:",inputs
 
