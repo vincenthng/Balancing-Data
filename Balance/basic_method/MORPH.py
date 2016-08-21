@@ -124,4 +124,3 @@ def MORPH_function(bug_rate,read_file,save_file):
     return
 
 
-MORPH_function(0.2,read_file,save_file)

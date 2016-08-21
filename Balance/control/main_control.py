@@ -96,9 +96,9 @@ def generating_new_data(filename,a,b,c,method,var,var_rate):
 
 
 
-
+'''
 import glob
-for filename in glob.glob(r'math/*.csv'):
+for filename in glob.glob(r'lang/*.csv'):
     generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
     generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
     generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
@@ -108,3 +108,4 @@ for filename in glob.glob(r'math/*.csv'):
     add_data(0.2,filename,output1)
     delete_data(0.2, filename, output2)
     #MORPH_function(0.2, filename, output2)
+'''
