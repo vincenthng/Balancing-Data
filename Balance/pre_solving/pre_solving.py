@@ -22,10 +22,11 @@ def read_file(filename):
         line = file.readline()
     '''print(listCsv)'''
     for a in range(1,len(listCsv)):
-        if(int(listCsv[a][len(listCsv[a])-1])>0):
+        if(double(listCsv[a][len(listCsv[a])-1])>0):
             pos.append(listCsv[a])
         else:
             neg.append(listCsv[a])
+    file.close()
 
 
 '''a,b为2个需要计算距离的向量'''

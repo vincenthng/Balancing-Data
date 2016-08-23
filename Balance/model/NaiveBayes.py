@@ -13,7 +13,7 @@ def naivebayes(file , outputfile):
         fn.append(filename)
 
     print fn
-
+    out = open(outputfile, "w")
     for j in range(0, len(fn) - 1):
 
         read_file(fn[j])
@@ -41,11 +41,28 @@ def naivebayes(file , outputfile):
         report = answer > 0.5
         print(classification_report(test[:,29], report, target_names=['neg', 'pos']))
 
-        out = open(outputfile, "a")
+
         out.write(fn[j]+"->"+fn[j+1]+"\n"+"\n")
         out.write(classification_report(test[:,29], report, target_names=['neg', 'pos']))
         out.write("\n")
-        out.close()
+    out.close()
 
 
-naivebayes("lang","result.txt")
+naivebayes("result/lang/0","result/lang/0/result.txt")
+naivebayes("result/lang/1","result/lang/1/result.txt")
+naivebayes("result/lang/2","result/lang/2/result.txt")
+naivebayes("result/lang/3","result/lang/3/result.txt")
+naivebayes("result/time/0","result/time/0/result.txt")
+naivebayes("result/time/1","result/time/1/result.txt")
+naivebayes("result/time/2","result/time/2/result.txt")
+naivebayes("result/time/3","result/time/3/result.txt")
+naivebayes("result/math/0","result/math/0/result.txt")
+naivebayes("result/math/1","result/math/1/result.txt")
+naivebayes("result/math/2","result/math/2/result.txt")
+naivebayes("result/math/3","result/math/3/result.txt")
+naivebayes("result/delete/lang","result/delete/lang/result.txt")
+naivebayes("result/delete/time","result/delete/time/result.txt")
+naivebayes("result/delete/math","result/delete/math/result.txt")
+naivebayes("result/add/lang","result/add/lang/result.txt")
+naivebayes("result/add/time","result/add/time/result.txt")
+naivebayes("result/add/math","result/add/math/result.txt")

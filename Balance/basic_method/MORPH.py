@@ -58,6 +58,7 @@ def made_bug(bug_inputs_vector,all_inputs_vector):
      return new_vector
 def MORPH_function(bug_rate,read_file,save_file):
     f = open(read_file, 'a+')
+    print f.readline()
     bug_inputs = []  # 装入有bug的行数，是str列表
     bug_inputs_vector = []
     all_inputs = []  # 装入每一行，是str形的列表
@@ -97,6 +98,7 @@ def MORPH_function(bug_rate,read_file,save_file):
                 all_inputs_vector.append(arr)
     new_bug_list = []
   #  print round(float(len(bug_inputs_vector)) / len(all_inputs_vector), 2)
+    print len(all_inputs_vector)
     while round(float(len(bug_inputs_vector)) / len(all_inputs_vector), 2) != bug_rate:
         new_bug = made_bug(bug_inputs_vector, all_inputs_vector)
 

@@ -82,7 +82,7 @@ def generating_new_data(filename,a,b,c,method,var,var_rate):
         else:
             neg.append(result)
             listCsv.append(result)
-    output="result/"+filename[0:len(filename)-4] + '-' + str(method) + ".csv"
+    output="result/"+filename.split('/')[0] + '/' + str(method) + '/' + filename.split('/')[1]
     out=open(output,"w")
     for l in listCsv:
        for k in range(0,len(l)):
@@ -96,7 +96,7 @@ def generating_new_data(filename,a,b,c,method,var,var_rate):
 
 
 
-'''
+
 import glob
 for filename in glob.glob(r'lang/*.csv'):
     generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
@@ -107,5 +107,26 @@ for filename in glob.glob(r'lang/*.csv'):
     output2="result/delete/" + filename
     add_data(0.2,filename,output1)
     delete_data(0.2, filename, output2)
-    #MORPH_function(0.2, filename, output2)
-'''
+    #MORPH_function(0.20, filename, output2)
+
+for filename in glob.glob(r'time/*.csv'):
+    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
+    output1="result/add/" + filename
+    output2="result/delete/" + filename
+    add_data(0.2,filename,output1)
+    delete_data(0.2, filename, output2)
+    #MORPH_function(0.20, filename, output2)
+
+for filename in glob.glob(r'math/*.csv'):
+    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
+    output1="result/add/" + filename
+    output2="result/delete/" + filename
+    add_data(0.2,filename,output1)
+    delete_data(0.2, filename, output2)
+    #MORPH_function(0.20, filename, output2)
