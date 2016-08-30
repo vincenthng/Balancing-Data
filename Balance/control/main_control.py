@@ -98,7 +98,7 @@ def generating_new_data(filename,a,b,c,method,var,var_rate):
 
 
 import glob
-for filename in glob.glob(r'lang/*.csv'):
+'''for filename in glob.glob(r'lang/*.csv'):
     generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
     generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
     generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
@@ -129,4 +129,115 @@ for filename in glob.glob(r'math/*.csv'):
     output2="result/delete/" + filename
     add_data(0.2,filename,output1)
     delete_data(0.2, filename, output2)
-    #MORPH_function(0.20, filename, output2)
+    #MORPH_function(0.20, filename, output2)'''
+
+for filename in glob.glob(r'ant/*.csv'):
+    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
+    output1="result/add/" + filename
+    output2="result/delete/" + filename
+    add_data(0.2,filename,output1)
+    delete_data(0.2, filename, output2)
+
+for filename in glob.glob(r'camel/*.csv'):
+    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
+    output1="result/add/" + filename
+    output2="result/delete/" + filename
+    add_data(0.2,filename,output1)
+    delete_data(0.2, filename, output2)
+
+for filename in glob.glob(r'ivy/*.csv'):
+    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
+    output1="result/add/" + filename
+    output2="result/delete/" + filename
+    add_data(0.2,filename,output1)
+    delete_data(0.2, filename, output2)
+
+for filename in glob.glob(r'jedit/*.csv'):
+    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
+    output1="result/add/" + filename
+    output2="result/delete/" + filename
+    add_data(0.2,filename,output1)
+    delete_data(0.2, filename, output2)
+
+for filename in glob.glob(r'log4j/*.csv'):
+    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
+    output1="result/add/" + filename
+    output2="result/delete/" + filename
+    add_data(0.2,filename,output1)
+    delete_data(0.2, filename, output2)
+
+for filename in glob.glob(r'lucene/*.csv'):
+    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
+    output1="result/add/" + filename
+    output2="result/delete/" + filename
+    add_data(0.2,filename,output1)
+    delete_data(0.2, filename, output2)
+
+for filename in glob.glob(r'poi/*.csv'):
+    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
+    output1="result/add/" + filename
+    output2="result/delete/" + filename
+    add_data(0.2,filename,output1)
+    delete_data(0.2, filename, output2)
+
+for filename in glob.glob(r'synapse/*.csv'):
+    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
+    output1="result/add/" + filename
+    output2="result/delete/" + filename
+    add_data(0.2,filename,output1)
+    delete_data(0.2, filename, output2)
+
+for filename in glob.glob(r'velocity/*.csv'):
+    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
+    output1="result/add/" + filename
+    output2="result/delete/" + filename
+    add_data(0.2,filename,output1)
+    delete_data(0.2, filename, output2)
+
+
+for filename in glob.glob(r'xalan/*.csv'):
+    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
+    output1="result/add/" + filename
+    output2="result/delete/" + filename
+    add_data(0.2,filename,output1)
+    delete_data(0.2, filename, output2)
+
+for filename in glob.glob(r'xerces/*.csv'):
+    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
+    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
+    output1="result/add/" + filename
+    output2="result/delete/" + filename
+    add_data(0.2,filename,output1)
+    delete_data(0.2, filename, output2)

@@ -26,13 +26,13 @@ def save_csv(save,a):
 
 
 
-a=read_txt("result/lang/0/result.txt")
-b=read_txt("result/lang/1/result.txt")
-c=read_txt("result/lang/2/result.txt")
-d=read_txt("result/lang/3/result.txt")
-e=read_txt("result/add/lang/result.txt")
-f=read_txt("result/delete/lang/result.txt")
-g=read_txt("result/MORPH/lang/result.txt")
+a=read_txt("result/time/0/result.txt")
+b=read_txt("result/time/1/result.txt")
+c=read_txt("result/time/2/result.txt")
+d=read_txt("result/time/3/result.txt")
+e=read_txt("result/add/time/result.txt")
+f=read_txt("result/delete/time/result.txt")
+g=read_txt("result/MORPH/time/result.txt")
 all=[]
 all.append(a)
 all.append(b)
@@ -42,4 +42,4 @@ all.append(e)
 all.append(f)
 all.append(g)
 
-save_csv("convert.csv",all)
+save_csv("time_result.csv",all)
