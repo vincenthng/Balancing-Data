@@ -120,7 +120,6 @@ naivebayes("result/add/poi","result/add/poi/result.txt")
 naivebayes("result/add/xalan","result/add/xalan/result.txt")
 naivebayes("result/add/xerces","result/add/xerces/result.txt")
 
-
 naivebayes("result/MORPH/lang","result/MORPH/lang/result.txt")
 naivebayes("result/MORPH/time","result/MORPH/time/result.txt")
 naivebayes("result/MORPH/math","result/MORPH/math/result.txt")

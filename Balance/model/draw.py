@@ -6,7 +6,9 @@ data_to_plot = [np.random.normal(100, 100, 200),
                 np.random.normal(80, 30, 200),
                 np.random.normal(90, 20, 200),
                 np.random.normal(70, 25, 200)]
-print type(data_to_plot)
+print data_to_plot[0]
+print data_to_plot[0][0]
+
 
 fig = plt.figure(1, figsize=(9, 6))
 # Create an axes instance
