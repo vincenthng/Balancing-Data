@@ -22,6 +22,10 @@ def read_file(filename):
         line = file.readline()
     '''print(listCsv)'''
     for a in range(1,len(listCsv)):
+        if listCsv[a][len(listCsv[a])-1][0:1]=='"':
+            c=listCsv[a][len(listCsv[a]) - 1]
+            b=c.split('"')[1]
+            listCsv[a][len(listCsv[a]) - 1]=b
         if(double(listCsv[a][len(listCsv[a])-1])>0):
             pos.append(listCsv[a])
         else:

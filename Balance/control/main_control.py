@@ -11,11 +11,12 @@ from generating.intermediate_rec import *
 
 
 '''bug的比例'''
-rate = 0.2
+rate = 0.5
 
 '''将list转为array'''
 def convert(selected):
     selected_=[]
+
     for i in selected:
         k=0
         array_temp = []
@@ -57,7 +58,7 @@ method取0123分别为4种算子,
 var为1则变异,
 var_rate为变异的幅度比例
 '''
-def generating_new_data(filename,a,b,c,method,var,var_rate):
+def generating_new_data(filename,a,b,c,method,var,var_rate,times,pro):
     read_file(filename)
     while (float((len(pos))/float(len(listCsv))))<rate:
         temp=choose(a,b,c,listCsv,pos,neg)
@@ -82,7 +83,12 @@ def generating_new_data(filename,a,b,c,method,var,var_rate):
         else:
             neg.append(result)
             listCsv.append(result)
-    output="result/"+filename.split('/')[0] + '/' + str(method) + '/' + filename.split('/')[1]
+    if pro==0:
+        ver = filename.split('/')
+        ver = ver[len(ver) - 1].split('.')[0]
+        output = "result/" + filename.split('/')[0] + '/' + str(method) + '/' + str(ver) + '/' + str(times) + "_" + filename.split('/')[1]
+    else:
+        output = "result/" + filename.split('/')[0] + '/' + str(method) +  '/' + str(times) + "_" + filename.split('/')[1]
     out=open(output,"w")
     for l in listCsv:
        for k in range(0,len(l)):
@@ -98,105 +104,118 @@ def generating_new_data(filename,a,b,c,method,var,var_rate):
 
 
 import glob
-for filename in glob.glob(r'lang/*.csv'):
-    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
-    output1="result/add/" + filename
-    output2="result/delete/" + filename
-    add_data(0.2,filename,output1)
-    delete_data(0.2, filename, output2)
-    #MORPH_function(0.20, filename, output2)
 
-for filename in glob.glob(r'time/*.csv'):
-    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
-    output1="result/add/" + filename
-    output2="result/delete/" + filename
-    add_data(0.2,filename,output1)
-    delete_data(0.2, filename, output2)
-    #MORPH_function(0.20, filename, output2)
+rt=0
+while rt<100:
 
-for filename in glob.glob(r'math/*.csv'):
-    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
-    output1="result/add/" + filename
-    output2="result/delete/" + filename
-    add_data(0.2,filename,output1)
-    delete_data(0.2, filename, output2)
-    #MORPH_function(0.20, filename, output2)
+    for filename in glob.glob(r'lang/*.csv'):
+        generating_new_data(filename, 5, 70, 25, 0, 0, 0.05, rt,0)
+        generating_new_data(filename, 5, 70, 25, 1, 0, 0.05, rt,0)
+        generating_new_data(filename, 5, 70, 25, 2, 0, 0.05, rt,0)
+        generating_new_data(filename, 5, 70, 25, 3, 0, 0.05, rt,0)
+        ver = filename.split('/')
+        ver = ver[len(ver) - 1].split('.')[0]
+        output1="result/add/" + filename.split('/')[0]+"/"+str(ver)+"/"+str(rt)+"_"+filename.split('/')[1]
+        output2="result/delete/" +filename.split('/')[0]+"/"+str(ver)+"/"+str(rt)+"_"+filename.split('/')[1]
+        add_data(0.5,filename,output1)
+        delete_data(0.5, filename, output2)
+        #MORPH_function(0.50, filename, output2)
+    for filename in glob.glob(r'time/*.csv'):
+        generating_new_data(filename, 5, 70, 25, 0, 0, 0.05, rt,0)
+        generating_new_data(filename, 5, 70, 25, 1, 0, 0.05, rt,0)
+        generating_new_data(filename, 5, 70, 25, 2, 0, 0.05, rt,0)
+        generating_new_data(filename, 5, 70, 25, 3, 0, 0.05, rt,0)
+        ver = filename.split('/')
+        ver = ver[len(ver) - 1].split('.')[0]
+        output1 = "result/add/" +filename.split('/')[0]+"/"+str(ver)+"/"+str(rt)+"_"+filename.split('/')[1]
+        output2 = "result/delete/" +filename.split('/')[0]+"/"+str(ver)+"/"+str(rt)+"_"+filename.split('/')[1]
+        add_data(0.5, filename, output1)
+        delete_data(0.5, filename, output2)
+        # MORPH_function(0.50, filename, output2)
 
-for filename in glob.glob(r'ant/*.csv'):
-    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
-    output1="result/add/" + filename
-    output2="result/delete/" + filename
-    add_data(0.2,filename,output1)
-    delete_data(0.2, filename, output2)
+    for filename in glob.glob(r'math/*.csv'):
 
-for filename in glob.glob(r'camel/*.csv'):
-    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
-    output1="result/add/" + filename
-    output2="result/delete/" + filename
-    add_data(0.2,filename,output1)
-    delete_data(0.2, filename, output2)
+        generating_new_data(filename, 5, 70, 25, 0, 0, 0.05, rt,0)
+        generating_new_data(filename, 5, 70, 25, 1, 0, 0.05, rt,0)
+        generating_new_data(filename, 5, 70, 25, 2, 0, 0.05, rt,0)
+        generating_new_data(filename, 5, 70, 25, 3, 0, 0.05, rt,0)
+        ver = filename.split('/')
+        ver = ver[len(ver) - 1].split('.')[0]
+        output1 = "result/add/" +filename.split('/')[0]+"/"+str(ver)+"/"+str(rt)+"_"+filename.split('/')[1]
+        output2 = "result/delete/" +filename.split('/')[0]+"/"+str(ver)+"/"+str(rt)+"_"+filename.split('/')[1]
+        add_data(0.5, filename, output1)
+        delete_data(0.5, filename, output2)
+        # MORPH_function(0.50, filename, output2)
 
-for filename in glob.glob(r'ivy/*.csv'):
-    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
-    output1="result/add/" + filename
-    output2="result/delete/" + filename
-    add_data(0.2,filename,output1)
-    delete_data(0.2, filename, output2)
+    for filename in glob.glob(r'ant/*.csv'):
+        generating_new_data(filename, 5, 70, 25, 0, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 1, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 2, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 3, 0, 0.05, rt,1)
+        output1 = "result/add/" +filename.split('/')[0]+"/"+filename.split('/')[0]+str(rt)+"_"+filename.split('/')[1]
+        output2 = "result/delete/" +filename.split('/')[0]+"/"+filename.split('/')[0]+str(rt)+"_"+filename.split('/')[1]
+        add_data(0.5, filename, output1)
+        delete_data(0.5, filename, output2)
 
-for filename in glob.glob(r'jedit/*.csv'):
-    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
-    output1="result/add/" + filename
-    output2="result/delete/" + filename
-    add_data(0.2,filename,output1)
-    delete_data(0.2, filename, output2)
+    for filename in glob.glob(r'camel/*.csv'):
+        generating_new_data(filename, 5, 70, 25, 0, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 1, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 2, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 3, 0, 0.05, rt,1)
+        output1 = "result/add/" +filename.split('/')[0]+"/"+filename.split('/')[0]+str(rt)+"_"+filename.split('/')[1]
+        output2 = "result/delete/" +filename.split('/')[0]+"/"+filename.split('/')[0]+str(rt)+"_"+filename.split('/')[1]
+        add_data(0.5, filename, output1)
+        delete_data(0.5, filename, output2)
 
-for filename in glob.glob(r'poi/*.csv'):
-    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
-    output1="result/add/" + filename
-    output2="result/delete/" + filename
-    add_data(0.2,filename,output1)
-    delete_data(0.2, filename, output2)
+    for filename in glob.glob(r'ivy/*.csv'):
+        generating_new_data(filename, 5, 70, 25, 0, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 1, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 2, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 3, 0, 0.05, rt,1)
+        output1 = "result/add/" +filename.split('/')[0]+"/"+filename.split('/')[0]+str(rt)+"_"+filename.split('/')[1]
+        output2 = "result/delete/" +filename.split('/')[0]+"/"+filename.split('/')[0]+str(rt)+"_"+filename.split('/')[1]
+        add_data(0.5, filename, output1)
+        delete_data(0.5, filename, output2)
 
-for filename in glob.glob(r'xalan/*.csv'):
-    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
-    output1="result/add/" + filename
-    output2="result/delete/" + filename
-    add_data(0.2,filename,output1)
-    delete_data(0.2, filename, output2)
+    for filename in glob.glob(r'jedit/*.csv'):
+        generating_new_data(filename, 5, 70, 25, 0, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 1, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 2, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 3, 0, 0.05, rt,1)
+        output1 = "result/add/" +filename.split('/')[0]+"/"+filename.split('/')[0]+str(rt)+"_"+filename.split('/')[1]
+        output2 = "result/delete/" +filename.split('/')[0]+"/"+filename.split('/')[0]+str(rt)+"_"+filename.split('/')[1]
+        add_data(0.5, filename, output1)
+        delete_data(0.5, filename, output2)
 
-for filename in glob.glob(r'xerces/*.csv'):
-    generating_new_data(filename, 5, 70, 25, 0, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 1, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 2, 0, 0.05)
-    generating_new_data(filename, 5, 70, 25, 3, 0, 0.05)
-    output1="result/add/" + filename
-    output2="result/delete/" + filename
-    add_data(0.2,filename,output1)
-    delete_data(0.2, filename, output2)
+    for filename in glob.glob(r'poi/*.csv'):
+        generating_new_data(filename, 5, 70, 25, 0, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 1, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 2, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 3, 0, 0.05, rt,1)
+        output1 = "result/add/" +filename.split('/')[0]+"/"+filename.split('/')[0]+str(rt)+"_"+filename.split('/')[1]
+        output2 = "result/delete/" +filename.split('/')[0]+"/"+filename.split('/')[0]+str(rt)+"_"+filename.split('/')[1]
+        add_data(0.5, filename, output1)
+        delete_data(0.5, filename, output2)
+
+    for filename in glob.glob(r'xalan/*.csv'):
+        generating_new_data(filename, 5, 70, 25, 0, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 1, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 2, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 3, 0, 0.05, rt,1)
+        output1 = "result/add/" +filename.split('/')[0]+"/"+filename.split('/')[0]+str(rt)+"_"+filename.split('/')[1]
+        output2 = "result/delete/" +filename.split('/')[0]+"/"+filename.split('/')[0]+str(rt)+"_"+filename.split('/')[1]
+        add_data(0.5, filename, output1)
+        delete_data(0.5, filename, output2)
+
+    for filename in glob.glob(r'xerces/*.csv'):
+        generating_new_data(filename, 5, 70, 25, 0, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 1, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 2, 0, 0.05, rt,1)
+        generating_new_data(filename, 5, 70, 25, 3, 0, 0.05, rt,1)
+
+        output1 = "result/add/" +filename.split('/')[0]+"/"+filename.split('/')[0]+str(rt)+"_"+filename.split('/')[1]
+        output2 = "result/delete/" +filename.split('/')[0]+"/"+filename.split('/')[0]+str(rt)+"_"+filename.split('/')[1]
+        add_data(0.5, filename, output1)
+        delete_data(0.5, filename, output2)
+
+    rt=rt+1

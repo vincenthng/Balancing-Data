@@ -16,10 +16,10 @@ def discrete_recom(vector1,vector2):
             #print random_num
 
 
-    print  type(new_bug)
-    print vector1,'\n' 
-    print vector2,'\n'
-    print  new_bug
+    #print  type(new_bug)
+    #print vector1,'\n'
+    #print vector2,'\n'
+    #print  new_bug
     from judge import judge_lable
     new_bug = judge_lable(vector1,vector2,new_bug)
     return new_bug

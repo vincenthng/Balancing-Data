@@ -15,5 +15,5 @@ def intermediate_rec(vector1,vector2):
         new_bug = vector2 + random_num * vector_interim
     from judge import judge_lable
     new_bug = judge_lable(vector1,vector2,new_bug)
-    print new_bug
+    #print new_bug
     return new_bug

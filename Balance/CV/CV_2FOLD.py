@@ -85,12 +85,12 @@ method取0123分别为4种算子,
 var为1则变异,
 var_rate为变异的幅度比例
 '''
-def generating_new_data(filename,a,b,c,method,var,var_rate,times):
+def generating_new_data(filename,a,b,c,method,var,var_rate,times,times1):
     read_file(filename)
     atf=two_fold(listCsv)
 
     output = "result/" + filename.split('/')[0] + '/' + str(method) + '/' + filename.split('/')[1]
-    output=output.split(".csv")[0]+"_"+str(times)+"_0_1.csv"
+    output=output.split(".csv")[0]+"_"+str(times)+"_"+str(times1)+"_0_1.csv"
     out = open(output, "w")
     for l in atf[0]:
         for k in range(0, len(l)):
@@ -104,7 +104,7 @@ def generating_new_data(filename,a,b,c,method,var,var_rate,times):
 
 
     output = "result/" + filename.split('/')[0] + '/' + str(method) + '/' + filename.split('/')[1]
-    output=output.split(".csv")[0]+"_"+str(times)+"_1_1.csv"
+    output=output.split(".csv")[0]+"_"+str(times)+"_"+str(times1)+"_1_1.csv"
     out = open(output, "w")
     for l in atf[1]:
         for k in range(0, len(l)):
@@ -183,7 +183,7 @@ def generating_new_data(filename,a,b,c,method,var,var_rate,times):
 
 
     output = "result/" + filename.split('/')[0] + '/' + str(method) + '/' + filename.split('/')[1]
-    output=output.split(".csv")[0]+"_"+str(times)+"_0_0.csv"
+    output=output.split(".csv")[0]+"_"+str(times)+"_"+str(times1)+"_0_0.csv"
     out = open(output, "w")
     for l in atf[1]:
         for k in range(0, len(l)):
@@ -197,7 +197,7 @@ def generating_new_data(filename,a,b,c,method,var,var_rate,times):
 
 
     output = "result/" + filename.split('/')[0] + '/' + str(method) + '/' + filename.split('/')[1]
-    output=output.split(".csv")[0]+"_"+str(times)+"_1_0.csv"
+    output=output.split(".csv")[0]+"_"+str(times)+"_"+str(times1)+"_1_0.csv"
     out = open(output, "w")
     for l in atf[0]:
         for k in range(0, len(l)):
@@ -214,10 +214,13 @@ def generating_new_data(filename,a,b,c,method,var,var_rate,times):
 import glob
 for filename in glob.glob(r'promise/*.csv'):
     i=0
-    while i<10:
-        generating_new_data(filename, 5, 70, 25, 0, 0, 0.05,i)
-        generating_new_data(filename, 5, 70, 25, 1, 0, 0.05,i)
-        generating_new_data(filename, 5, 70, 25, 2, 0, 0.05,i)
-        generating_new_data(filename, 5, 70, 25, 3, 0, 0.05,i)
-        generating_new_data(filename, 5, 70, 25, 4, 0, 0.05,i)
+    while i<100:
+        j=0
+        while j<100:
+            generating_new_data(filename, 5, 70, 25, 0, 0, 0.05,i,j)
+            generating_new_data(filename, 5, 70, 25, 1, 0, 0.05,i,j)
+            generating_new_data(filename, 5, 70, 25, 2, 0, 0.05,i,j)
+            generating_new_data(filename, 5, 70, 25, 3, 0, 0.05,i,j)
+            generating_new_data(filename, 5, 70, 25, 4, 0, 0.05,i,j)
+            j=j+1
         i=i+1
